@@ -1,5 +1,6 @@
 
 import 'package:hbk/Data/DataSource/Static/assets.dart';
+import 'package:hbk/Domain/Models/Cart/cart_item.dart';
 import 'package:hbk/Domain/Models/HomeScreen/category_model.dart';
 
 class Utils {
@@ -32,6 +33,11 @@ static List<CategoryProduct> categoryDummyProduct=[
   CategoryProduct(productId: "4",productImage: "assets/images/dummy2.png",productName: "Baby Blanket"),
   CategoryProduct(productId: "5",productImage: "assets/images/dummy.png",productName: "General Product")
 
+];
+
+static List<CartItem> cartItems = [
+  CartItem('1',  'assets/images/applogo.png', 'Belpla Teenagers 1 Ply Single Bed Blanket', 5, 5490),
+  CartItem('2',  'assets/images/borjan.png', 'Burjjan 1 ply Double bed embossed blanket', 5, 5490),
 ];
 
 }

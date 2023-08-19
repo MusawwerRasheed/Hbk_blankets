@@ -1,5 +1,6 @@
 import 'package:flutter/material.dart';
 import 'package:flutter_screenutil/flutter_screenutil.dart';
+import 'package:hbk/Application/NavigationService/navigation.dart';
 import 'package:hbk/Data/DataSource/Static/assets.dart';
 import 'package:hbk/Data/DataSource/Static/colors_pallete.dart';
 import 'package:hbk/Data/DataSource/Static/sized_box.dart';
@@ -10,6 +11,7 @@ import 'package:hbk/Presentation/Common/app_text.dart';
 import 'package:hbk/Presentation/Common/custom_textfield_with_on_tap.dart';
 import 'package:hbk/Presentation/Common/dialog.dart';
 import 'package:hbk/Presentation/Common/image_widgets.dart';
+import 'package:hbk/Presentation/Widgets/Auth/Login/login_screen.dart';
 
 class CreateNewPasswordScreen extends StatefulWidget {
   const CreateNewPasswordScreen({Key? key}) : super(key: key);
@@ -93,9 +95,10 @@ class _CreateNewPasswordScreenState extends State<CreateNewPasswordScreen> {
                   right: 0,
                   left: 0,
                   child: CustomButton(onTap: () {
-                    CustomDialog.successDialog(
-                        context, title: AppStrings.passwordChangeSuccessFull,
-                        message: 'Awesome! you’ve successfully change your password');
+                    // CustomDialog.successDialog(
+                    //     context, title: AppStrings.passwordChangeSuccessFull,
+                    //     message: 'Awesome! you’ve successfully change your password');
+                    Navigate.toReplace(context, const LoginScreen());
 
                   }, text: AppStrings.createNewPassword,))
             ],

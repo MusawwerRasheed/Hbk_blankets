@@ -1,17 +1,23 @@
-import 'package:flutter/material.dart';
+  import 'package:flutter/material.dart';
 import 'package:flutter_screenutil/flutter_screenutil.dart';
 import 'package:flutter_svg/flutter_svg.dart';
+import 'package:hbk/Application/ConnectivityServices/connectivity_service.dart';
+import 'package:hbk/Application/NavigationService/navigation.dart';
 import 'package:hbk/Data/DataSource/Static/assets.dart';
 import 'package:hbk/Data/DataSource/Static/colors_pallete.dart';
+import 'package:hbk/Data/DataSource/Static/strings.dart';
 import 'package:hbk/Data/DataSource/Static/text_styles.dart';
 import 'package:hbk/Presentation/Common/app_text.dart';
 import 'package:hbk/Presentation/Common/custom_app_bar.dart';
+import 'package:hbk/Presentation/Common/image_widgets.dart';
 import 'package:hbk/Presentation/Widgets/Dashboard/BottomNavigationScreen/Controller/BottomNavigationNotifier/bottom_navigation_notifier.dart';
 import 'package:hbk/Presentation/Widgets/Dashboard/CartScreen/cart_screen.dart';
 import 'package:hbk/Presentation/Widgets/Dashboard/DashboardBottomScreen/dashboard_screen.dart';
 import 'package:hbk/Presentation/Widgets/Dashboard/HomeScreen/home_screen.dart';
 import 'package:hbk/Presentation/Widgets/Dashboard/Product/product.dart';
 import 'package:hbk/Presentation/Widgets/Dashboard/ProfileScreen/profile_screen.dart';
+import 'package:hbk/Presentation/Widgets/no_internet_connection.dart';
+import 'package:http/http.dart';
 
 class BottomNavigationScreen extends StatefulWidget {
   const BottomNavigationScreen({super.key});
@@ -23,6 +29,19 @@ class BottomNavigationScreen extends StatefulWidget {
 class _BottomNavigationScreenState extends State<BottomNavigationScreen> {
   PageController pageController = PageController(initialPage: 0);
   final GlobalKey<ScaffoldState> scaffoldKey = GlobalKey<ScaffoldState>();
+
+  @override
+  void initState() {
+    // TODO: implement initState
+    init();
+    super.initState();
+  }
+
+  init() {
+    AppConnectivity.connectionChanged(onDisconnected: (){
+      Navigate.to(context, const NoInternetConnectionScreen());
+    });
+  }
   @override
   Widget build(BuildContext context) {
     return  Scaffold(
@@ -31,31 +50,125 @@ class _BottomNavigationScreenState extends State<BottomNavigationScreen> {
         scaffoldKey.currentState!.openDrawer();
 
       },),
-      drawer: const Drawer(),
-body: SizedBox(
-  height: 1.sh,
-  width: 1.sw,
-  child: PageView(
-    controller: pageController,
+      drawer: 
+      
+  
+ 
+ 
+ Drawer(
+      child: Container(
+        color:AppColors.primaryColor, 
+        child: ListView(
+          padding: EdgeInsets.zero,
+          children: <Widget>[
+            DrawerHeader(
+              decoration: BoxDecoration(
+                color: AppColors.primaryColor,
+              ),
+              child: Padding(
+                padding: EdgeInsets.only(top:10.0),
+                child: Row(
+                  children: [
+                    Column( children: 
+                    [AssetImageWidget(url: 'assets/images/profileavatar.png',
+                     width: 70,height: 70,)],),
+                    Padding(
+                      padding: EdgeInsets.all(1.0),
+                      child: Column(
+                        children: [
+                          Row( children: [    
+      
+                                                      
+                                Padding(
+                                  padding: const EdgeInsets.symmetric(vertical:9, horizontal:1 ),
+                                  child: AppText(AppStrings.personname, style: Styles.circularStdRegular(
+                                    context,fontWeight: FontWeight.w500,fontSize: 16, color: AppColors.whiteColor  ),),
+                                ),
+                    
+                           ],),
+                          Padding(
+                            padding: const EdgeInsets.only(left:18.0),
+                            child: Row(children: [  
+                              
+                                  AppText(AppStrings.personemail, style: Styles.circularStdRegular(
+                                    context,fontWeight: FontWeight.w200,fontSize: 12, color: AppColors.whiteColor ),),
+                                              ],),
+                          ),
+                     
+                      
+                   
+                       
+                        ],
+                      ),
+                    ),
+                  ],
+                ),
+              ),
+            ),
+             ListTileWidget(imagePath:'assets/images/Bag.svg' , title: AppStrings.order, onTap:(){} ,), 
 
-onPageChanged: (x)
-    {
-      BottomNotifier.bottomNavigationNotifier.value=x;
+              ListTileWidget(imagePath:'assets/images/Document.svg' , title: AppStrings.statement, onTap:(){} ,), 
 
-    },
-    children:  [
-HomeScreen(),
-      const DashboardBottom(),
-      const ProductScreen(),
-      const CartScreen(),
-      const ProfileScreen()
+              ListTileWidget(imagePath:'assets/images/Paper.svg' , title: AppStrings.pricelist, onTap:(){} ,), 
+              
+               ListTileWidget(imagePath:'assets/images/exclamation.svg' , title: AppStrings.rewards, onTap:(){} ,), 
+               
+                ListTileWidget(imagePath:'assets/images/survery.svg' , title: AppStrings.invoice, onTap:(){} ,), 
+
+                 ListTileWidget(imagePath:'assets/images/salepolicy.svg' , title: AppStrings.salepolicies, onTap:(){} ,), 
+
+                  ListTileWidget(imagePath:'assets/images/Send.svg' , title: AppStrings.feedback, onTap:(){} ,), 
+
+                   ListTileWidget(imagePath:'assets/images/exclamation.svg' , title: AppStrings.FAQs, onTap:(){} ,), 
+
+                    ListTileWidget(imagePath:'assets/images/call.svg' , title: AppStrings.contactus, onTap:(){} ,), 
+
+        ListTileWidget(imagePath:'assets/images/Bag.svg' , title: AppStrings.customersuvery, onTap:(){} ,), 
 
 
-    ],
+ListTileWidget(imagePath:'assets/images/Bag.svg' , title: AppStrings.aboutus, onTap:(){} ,), 
 
+
+ListTileWidget(imagePath:'assets/images/Logout.svg' , title: AppStrings.logout, onTap:(){} ,), 
+
+
+           
+          ],
+        ),
+      ),
+    ),
+ 
+
+body: Container(
+  color:Colors.red,
+  child:   SizedBox(
+    
+    height: 1.sh,
+    width: 1.sw,
+    child: PageView(
+  
+      controller: pageController,
+  
+  
+  onPageChanged: (x)
+      {
+        BottomNotifier.bottomNavigationNotifier.value=x;
+  
+      },
+      children:  [
+  HomeScreen(),
+        const DashboardBottom(),
+        const ProductScreen(),
+         CartScreen(pageController: pageController,),
+        const ProfileScreen()
+  
+  
+      ],
+  
+    ),
+  
+  
   ),
-
-
 ),
       bottomNavigationBar: ValueListenableBuilder(
         builder: (context,state,child) {
@@ -322,5 +435,25 @@ HomeScreen(),
 
 
     );
+  }
+}
+
+class ListTileWidget extends StatelessWidget {
+  final String? imagePath;
+  final String? title;
+  final VoidCallback onTap;
+  const ListTileWidget({
+    super.key, this.imagePath, this.title, required this.onTap,
+  });
+
+  @override
+  Widget build(BuildContext context) {
+    return ListTile(
+            
+    leading: AssetImageWidget(url: imagePath!),
+    title: AppText(title!, style: Styles.circularStdRegular(
+                        context,fontWeight: FontWeight.w400,fontSize: 15, color: AppColors.whiteColor ),),
+    onTap: onTap,
+            );
   }
 }

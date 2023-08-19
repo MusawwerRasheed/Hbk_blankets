@@ -1,6 +1,5 @@
 import 'package:flutter/material.dart';
 import 'package:flutter_screenutil/flutter_screenutil.dart';
-import 'package:hbk/Application/NavigationService/navigation.dart';
 import 'package:hbk/Data/DataSource/Static/colors_pallete.dart';
 import 'package:hbk/Data/DataSource/Static/strings.dart';
 import 'package:hbk/Data/DataSource/Static/text_styles.dart';
@@ -33,7 +32,7 @@ class NotificationScreen extends StatelessWidget {
         physics: const BouncingScrollPhysics(),
         itemCount: 5,
           itemBuilder: (context,index){
-        return notificationTile(context);
+        return const NotificationTile();
       }),
     );
   }

@@ -2,9 +2,12 @@ import 'package:flutter/cupertino.dart';
 import 'package:flutter/material.dart';
 import 'package:flutter_screenutil/flutter_screenutil.dart';
 import 'package:flutter_svg/flutter_svg.dart';
+import 'package:hbk/Application/NavigationService/navigation.dart';
 import 'package:hbk/Data/DataSource/Static/assets.dart';
 import 'package:hbk/Data/DataSource/Static/colors_pallete.dart';
 import 'package:hbk/Data/DataSource/Static/text_styles.dart';
+import 'package:hbk/Presentation/Widgets/Notifications/notification_screen.dart';
+import 'package:hbk/Presentation/Widgets/search/search.dart';
 
 import 'app_text.dart';
 import 'image_widgets.dart';
@@ -21,6 +24,7 @@ class CustomAppBar extends StatefulWidget implements PreferredSizeWidget {
     this.isShowNotificationButton = true, this.onBackTap})
       : preferredSize = const Size.fromHeight(65),
         super(key: key);
+
   @override
   final Size preferredSize;
 
@@ -33,9 +37,13 @@ class CustomAppBarState extends State<CustomAppBar> {
 
   @override
   Widget build(BuildContext context) {
-    return AppBar(
+    return 
+    
+    AppBar(
+       
       elevation: 8,
-      shadowColor: Colors.black12,
+      
+      shadowColor: Color.fromARGB(31, 201, 69, 69),
       backgroundColor: AppColors.whiteColor,
       automaticallyImplyLeading: false,
       centerTitle: true,
@@ -56,12 +64,37 @@ class CustomAppBarState extends State<CustomAppBar> {
       ),
       actions: [
 
-SvgPicture.asset(Assets.searchIcon,height: 20.h,width: 20.w,),
-        SizedBox(width: 10.sp,),
-        SvgPicture.asset(Assets.notificationIcon,height: 20.h,width: 20.w,),
+    GestureDetector(
+          onTap: (){
+            Navigate.to(context, const SearchScreen());
+          },
+            child: SvgPicture.asset(Assets.searchIcon,height: 20.h,width: 20.w,)),
         SizedBox(width: 20.sp,),
 
+        SizedBox(width: 10.sp,),
+        GestureDetector(
+          onTap: (){
+            Navigate.to(context, const NotificationScreen());
+          },
+            child: SvgPicture.asset(Assets.notificationIcon,height: 20.h,width: 20.w,)),
+        SizedBox(width: 20.sp,),
+
+  
       ],
     );
+
+    
+
+    
   }
 }
+
+
+
+
+ 
+
+   
+      
+ 
+ 

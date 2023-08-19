@@ -24,18 +24,24 @@ class _SplashScreenState extends State<SplashScreen> {
     // TODO: implement initState
    WidgetsBinding.instance.addPostFrameCallback((timeStamp) {
      Future.delayed(const Duration(seconds: 2), () {
-       Navigate.toReplace(context, const OnboardingScreen());
+       Navigate.toReplace(context,  OnboardingScreen());
      });
    });
     super.initState();
+  
   }
+
   @override
   Widget build(BuildContext context) {
     return  Scaffold(
       backgroundColor: AppColors.primaryColor,
       body: Center(
         child: AssetImageWidget(url: Assets.appLogo,width: 150.w,height: 150.h,),
+
       ),
+
     );
+
   }
+
 }

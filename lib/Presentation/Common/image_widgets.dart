@@ -3,7 +3,9 @@ import 'dart:ui';
 import 'package:cached_network_image/cached_network_image.dart';
 import 'package:flutter/material.dart';
 import 'package:hbk/Data/DataSource/Static/colors_pallete.dart';
+  import 'package:flutter_svg/flutter_svg.dart';
 
+ 
 class AssetImageWidget extends StatelessWidget {
   final String url;
   final double? scale;
@@ -12,32 +14,54 @@ class AssetImageWidget extends StatelessWidget {
   final Color? color;
   final bool? isCircle;
   final double? radius;
+  final int? margin; 
+  
   const AssetImageWidget({
     Key? key,
     required this.url,
     this.scale = 1,
     this.width = 25,
+    this.margin = 2,
     this.height = 25,
     this.color, this.isCircle, this.radius,
   }) : super(key: key);
 
   @override
-  Widget build(BuildContext context) {
-    return    isCircle != null
-        ?
-    CircleAvatar(
-        radius: radius,
-        backgroundImage:  AssetImage(url)
+  
+  
 
 
-    ): Image.asset(
-      url,
-      fit: BoxFit.fill,
-      color: color,
-      width: width! * scale!,
-      height: height! * scale!,
+Widget build(BuildContext context) {
+  if (isCircle != null ) {
+    return CircleAvatar(
+      radius: radius,
+      backgroundImage: AssetImage(url),
     );
+  } else {
+    if (url.endsWith('.svg')) {
+      return SvgPicture.asset(
+        url,
+        fit: BoxFit.fill,
+        color: color,
+        width: width! * scale!,
+        height: height! * scale!,
+        
+      );
+    } else {
+      return Image.asset(
+        url,
+        fit: BoxFit.fill,
+        color: color,
+        width: width! * scale!,
+        height: height! * scale!,
+         
+      );
+    }
   }
+}
+
+
+
 }
 
 class CachedImage extends StatelessWidget {
@@ -65,6 +89,8 @@ class CachedImage extends StatelessWidget {
     this.height,
     this.width,
   });
+
+
 
   @override
   Widget build(BuildContext context) {

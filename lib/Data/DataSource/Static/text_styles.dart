@@ -6,7 +6,9 @@ import 'package:flutter_screenutil/flutter_screenutil.dart';
 import 'colors_pallete.dart';
 
 extension Scale on BuildContext {
+  
   double get textScale => MediaQuery.of(this).textScaleFactor;
+
 }
 
 class Styles {

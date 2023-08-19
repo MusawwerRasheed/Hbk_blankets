@@ -5,8 +5,10 @@ import 'package:hbk/Data/DataSource/Static/sized_box.dart';
 import 'package:hbk/Data/DataSource/Static/strings.dart';
 import 'package:hbk/Data/DataSource/Static/text_styles.dart';
 import 'package:hbk/Presentation/Common/app_text.dart';
-import 'package:hbk/Presentation/Common/custom_app_bar.dart';
+ 
 import 'package:hbk/Presentation/Widgets/Dashboard/HomeScreen/Components/category_product.dart';
+import 'package:hbk/Presentation/Widgets/Dashboard/HomeScreen/Components/most_sold_products.dart';
+import 'package:hbk/Presentation/Widgets/Dashboard/HomeScreen/Components/new_arrivals.dart';
 
 import 'Components/home_carousel.dart';
 
@@ -54,9 +56,11 @@ class HomeScreen extends StatelessWidget {
                 ),
               CustomSizedBox.height(20),
 ///Home Coruosel sliding Images
+///
               const HomeCarousel(),
               CustomSizedBox.height(20),
               ///Category Product
+              ///
               Align(
                   alignment: Alignment.centerLeft,
                   child: AppText(AppStrings.category, style: Styles.circularStdRegular(context,fontWeight: FontWeight.w500,fontSize: 20.sp),)),
@@ -67,9 +71,44 @@ const CategoryProduct(),
 
               Align(
                   alignment: Alignment.centerLeft,
-                  child: AppText(AppStrings.newArrival, style: Styles.circularStdRegular(context,fontWeight: FontWeight.w500,fontSize: 20.sp),)),
-///to be continued ..
-              CustomSizedBox.height(200),
+                  child: AppText(AppStrings.newArrival, 
+                  style: Styles.circularStdRegular(context,fontWeight: FontWeight.w500,fontSize: 20.sp),)),
+
+              CustomSizedBox.height(10),
+        
+         
+         NewArrivals(),
+
+
+// Most Sold Products 
+
+CustomSizedBox.height(20),
+
+Row( 
+  children: [
+
+   Align(
+                  alignment: Alignment.centerLeft,
+                  child: AppText(AppStrings.mostSoldProducts, 
+                  style: Styles.circularStdRegular(context,fontWeight: FontWeight.w500,fontSize: 20.sp),)
+                  
+                  ),
+                   Padding(
+                     padding: const EdgeInsets.only(left:70.0),
+                     child: Align(
+                                     alignment: Alignment.topRight,
+                                     child: AppText(AppStrings.seeAll, 
+                                     style: Styles.circularStdRegular(context,fontWeight: FontWeight.w500,fontSize: 15.sp),)
+                                     
+                                     ),
+                   ),
+],), 
+
+ 
+ MostSoldProducts(), 
+
+ 
+
 
             ],),
           )

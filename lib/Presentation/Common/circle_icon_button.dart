@@ -1,23 +1,27 @@
 import 'package:flutter/material.dart';
 import 'package:flutter_screenutil/flutter_screenutil.dart';
+import 'package:hbk/Data/DataSource/Static/colors_pallete.dart';
 
 class CircleIconButton extends StatelessWidget {
   final IconData icon;
   final VoidCallback onPressed;
-
+  final double? width;
+  final double? height;
+  final Color? color;
+  final Color? iconColor;
   const CircleIconButton(
-      {super.key, required this.icon, required this.onPressed});
+      {super.key, required this.icon, required this.onPressed,this.width,this.height,this.color,this.iconColor});
 
   @override
   Widget build(BuildContext context) {
     return GestureDetector(
       onTap: onPressed,
       child: Container(
-        width: 50.w,
-         height: 40.h,
+        width: width?? 50.w,
+         height: height?? 40.h,
         decoration: BoxDecoration(
           shape: BoxShape.circle,
-          color: Colors.white,
+          color: color?? Colors.white,
           boxShadow: [
             BoxShadow(
               color: Colors.black.withOpacity(0.2),
@@ -26,7 +30,7 @@ class CircleIconButton extends StatelessWidget {
             ),
           ],
         ),
-        child: Icon(icon, size: 25),
+        child: Icon(icon, size: 25,color: iconColor??AppColors.blackColor,),
       ),
     );
   }

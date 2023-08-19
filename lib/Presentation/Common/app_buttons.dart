@@ -6,6 +6,7 @@ import 'package:hbk/Data/DataSource/Static/colors_pallete.dart';
 import 'package:hbk/Data/DataSource/Static/text_styles.dart';
 
 
+
 import 'app_text.dart';
 import 'image_widgets.dart';
 
@@ -19,6 +20,8 @@ class CustomButton extends StatelessWidget {
   final double? verticalPadding;
   final double? horizontalMargin;
   final double? verticalMargin;
+  final int? style;
+  
 
   ///must be Asset Image
   final String? trailingIcon;
@@ -29,6 +32,7 @@ class CustomButton extends StatelessWidget {
   final double? imageHeight;
   final bool isBorder;
   final Color? borderColor;
+
 
   const CustomButton({
     Key? key,
@@ -41,13 +45,21 @@ class CustomButton extends StatelessWidget {
     this.horizontalMargin = 1,
     this.verticalMargin = 1,
     this.trailingIcon,
+    this.style, 
     this.iconColor,
     this.isBorder = true,
     this.leadingIcon,
     this.imageWidth = 22,
     this.imageHeight = 25,
-    this.borderColor = AppColors.primaryColor,
+    this.borderColor = AppColors.primaryColor,   double fontSize, 
+    // this.style = TextStyle(); 
+
   }) : super(key: key);
+
+
+
+
+
 
   @override
   Widget build(BuildContext context) {
@@ -93,12 +105,14 @@ class CustomButton extends StatelessWidget {
                       ),
                     )
                   : Container(),
+
               AppText(
+                fontSize: 14.sp, 
                 text,
                 style: Styles.circularStdRegular(
                   context,
                   color: textColor,
-                  fontSize: 16.sp,
+                 
                   fontWeight: FontWeight.bold
                 ),
               ),

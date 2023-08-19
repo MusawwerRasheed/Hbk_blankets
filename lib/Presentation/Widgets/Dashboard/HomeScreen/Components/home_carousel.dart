@@ -42,6 +42,7 @@ class _HomeCarouselState extends State<HomeCarousel> {
             aspectRatio: 16 / 9,
             viewportFraction: 0.8,
             onPageChanged: (index, reason) {
+              
               setState(() {
                 _currentIndex = index;
               });
@@ -67,6 +68,8 @@ class _HomeCarouselState extends State<HomeCarousel> {
             color: index == _currentIndex ? const Color(0xFF0C4A9F) : Colors.grey,
             shape: RoundedRectangleBorder(
               borderRadius: BorderRadius.circular(10),
+              side: BorderSide(), 
+
             ),
           ),
         ),
