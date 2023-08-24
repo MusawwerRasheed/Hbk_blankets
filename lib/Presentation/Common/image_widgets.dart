@@ -12,6 +12,7 @@ class AssetImageWidget extends StatelessWidget {
   final double? width;
   final double? height;
   final Color? color;
+  
   final bool? isCircle;
   final double? radius;
   final int? margin; 

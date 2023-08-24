@@ -33,7 +33,7 @@ class Styles {
   static TextStyle circularStdBold(BuildContext context,
       {double? fontSize, Color? color,FontWeight? fontWeight}) {
     return TextStyle(
-      fontSize: (fontSize ?? 14.0.sp) * _textScale(context),
+      fontSize: (fontSize ?? 16.0.sp) * _textScale(context),
       color: color ?? AppColors.blackColor,
       fontFamily: "circularStd Bold",
       fontWeight: fontWeight?? FontWeight.normal
@@ -64,7 +64,7 @@ class Styles {
   static TextStyle circularStdMedium(BuildContext context,
       {double? fontSize, Color? color}) {
     return TextStyle(
-      fontSize: (fontSize ?? 14.0.sp) * _textScale(context),
+      fontSize: (fontSize ?? 18.0.sp) * _textScale(context),
       color: color ?? AppColors.blackColor,
       fontFamily: "CircularStd Medium",
     );

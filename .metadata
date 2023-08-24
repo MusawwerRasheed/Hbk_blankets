@@ -15,7 +15,7 @@ migration:
     - platform: root
       create_revision: ac71592bc605996f9376ec5b7607db52b64cabd0
       base_revision: ac71592bc605996f9376ec5b7607db52b64cabd0
-    - platform: windows
+    - platform: web
       create_revision: ac71592bc605996f9376ec5b7607db52b64cabd0
       base_revision: ac71592bc605996f9376ec5b7607db52b64cabd0
 

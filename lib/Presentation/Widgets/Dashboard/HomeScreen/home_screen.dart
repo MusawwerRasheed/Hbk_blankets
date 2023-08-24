@@ -5,16 +5,22 @@ import 'package:hbk/Data/DataSource/Static/sized_box.dart';
 import 'package:hbk/Data/DataSource/Static/strings.dart';
 import 'package:hbk/Data/DataSource/Static/text_styles.dart';
 import 'package:hbk/Presentation/Common/app_text.dart';
- 
+import 'package:hbk/Presentation/Common/custom_app_bar.dart';
 import 'package:hbk/Presentation/Widgets/Dashboard/HomeScreen/Components/category_product.dart';
 import 'package:hbk/Presentation/Widgets/Dashboard/HomeScreen/Components/most_sold_products.dart';
 import 'package:hbk/Presentation/Widgets/Dashboard/HomeScreen/Components/new_arrivals.dart';
-
 import 'Components/home_carousel.dart';
 
+
+
+
 class HomeScreen extends StatelessWidget {
-  //GlobalKey<ScaffoldState> scaffoldKey;
-   const HomeScreen( {super.key});
+  var scaffoldKey;
+
+  // GlobalKey<ScaffoldState> scaffoldKey;
+
+  
+    HomeScreen( {super.key, required this.scaffoldKey});
 
   @override
   Widget build(BuildContext context) {
@@ -22,14 +28,16 @@ class HomeScreen extends StatelessWidget {
     return    Scaffold(
       backgroundColor: AppColors.whiteColor,
 
-      //  drawer: Drawer(),
+       drawer: Drawer(),
 
-        // appBar: CustomAppBar(onBackTap: (){
-        //   scaffoldKey.currentState!.openDrawer();
-        //
-        // },),
+
+        appBar: CustomAppBar(onBackTap: (){
+         
+          scaffoldKey.currentState!.openDrawer();
+        
+        },),
         body: Padding(
-          padding: EdgeInsets.symmetric(horizontal: 20.sp),
+          padding: EdgeInsets.symmetric(horizontal: 3.sp),
           child:  SingleChildScrollView(
             child: Column(children: [
               CustomSizedBox.height(10),
@@ -104,7 +112,8 @@ Row(
                    ),
 ],), 
 
- 
+
+ CustomSizedBox.height(20), 
  MostSoldProducts(), 
 
  
@@ -117,3 +126,5 @@ Row(
     );
   }
 }
+
+ 

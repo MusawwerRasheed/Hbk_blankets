@@ -13,7 +13,7 @@ class CategoryProduct extends StatelessWidget {
   @override
   Widget build(BuildContext context) {
     return SizedBox(
-      height: 115,
+      height: 155,
       width: 1.sw,
       child: ListView.separated(
         shrinkWrap: true,
@@ -29,7 +29,7 @@ class CategoryProduct extends StatelessWidget {
             children: [
 
               AssetImageWidget(url: Utils.categoryDummyProduct[index].productImage.toString(),isCircle: true,radius: 40.sp,),
-            CustomSizedBox.height(5),
+            CustomSizedBox.height(20),
               AppText(Utils.categoryDummyProduct[index].productName.toString(), style: Styles.circularStdBold(context,fontWeight: FontWeight.w500))
             ],
 

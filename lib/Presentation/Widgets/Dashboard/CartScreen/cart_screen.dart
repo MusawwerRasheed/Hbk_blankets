@@ -9,7 +9,11 @@ import 'package:hbk/Data/DataSource/Static/text_styles.dart';
 import 'package:hbk/Data/DataSource/Static/utils.dart';
 import 'package:hbk/Presentation/Common/app_buttons.dart';
 import 'package:hbk/Presentation/Common/app_text.dart';
+import 'package:hbk/Presentation/Common/custom_app_bar.dart';
 import 'package:hbk/Presentation/Widgets/Dashboard/CartScreen/Components/cart_item_tile.dart';
+
+
+
 
 class CartScreen extends StatelessWidget {
   final PageController? pageController;
@@ -21,26 +25,7 @@ class CartScreen extends StatelessWidget {
       padding:  EdgeInsets.only(top: 15.h,left: 10.w,right: 10.w),
       child: Column(
         children: [
-          Row(
-            mainAxisAlignment: MainAxisAlignment.spaceBetween,
-            children: <Widget>[
-
-              AppText(AppStrings.accountBalance, style: Styles.circularStdRegular(context,fontWeight: FontWeight.w500,fontSize: 16),),
-              RichText(text: TextSpan(children: [
-                TextSpan(
-                    text: 'Rs ',
-                    style: Styles.circularStdBold(context,fontSize: 16.sp
-                    )),
-                TextSpan(
-                    text: '50,490 ',
-                    style: Styles.circularStdBold(context,fontWeight: FontWeight.w900,fontSize: 20
-                    )),
-
-
-              ]))
-
-            ],
-          ),
+         CustomAppBar(title: AppStrings.cart, isShowNotificationButton: false, isShowSearchbutton: false,),
           Expanded(
             child: ListView.separated(itemBuilder: (context,index){
               return CartItemTile(

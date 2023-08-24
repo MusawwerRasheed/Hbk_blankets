@@ -60,6 +60,7 @@ static const String searchproducts = 'Search Products';
 
 // Cart
 
+static const String cart = 'Cart'; 
 static const String addedtocart = 'Add to cart'; 
 
 static const String oneproductaddednumbers = '1 product in your cart 890,230'; 
@@ -68,8 +69,30 @@ static const String exploremore = 'Explore more';
 
 static const String oneproductadded = '1 product added to cart'; 
 
+
+
+//Dashboard
+
+
+static const String customerdashboard = "Customer Dashboard"; 
+
+
+//  Products 
+
+static const String allproducts = "All Products"; 
+static const String onesixtyfiveproducts = "165 products total"; 
+static const String mostrelevant = "Most relevant"; 
+static const String lowtohigh = "Low to high";
+static const String newarrivals = "New arrivals"; 
+static const String hightolow = "High to Low"; 
+static const String pricerange = "Price Range"; 
+static const String productcategory = 'Category';
+
 }
 
+
+
+//
 
 
 

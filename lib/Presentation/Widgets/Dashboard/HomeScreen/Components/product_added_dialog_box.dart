@@ -1,4 +1,5 @@
 import 'package:flutter/material.dart';
+import 'package:flutter_screenutil/flutter_screenutil.dart';
 import 'package:hbk/Data/DataSource/Static/assets.dart';
 import 'package:hbk/Data/DataSource/Static/colors_pallete.dart';
 import 'package:hbk/Data/DataSource/Static/strings.dart';
@@ -75,18 +76,18 @@ class _ProductAddedToCartState extends State<ProductAddedToCart> {
                        ),
                        Spacer(),
                        CustomButton(
-           onTap: () {},
-           // text: ('Cart', Styles.circularStdRegular(context, fontSize: 8)),   
-           
+           onTap: () {},          
+
            horizontalPadding: 20,
+          //  text: 'asd',
            verticalPadding: 7,
            leadingIcon: 'assets/images/Bag.svg',
-            text: 'Cart',
-            
-            
-             // Adjust the font size as needed
-           ),
-           
+           appText: AppText(AppStrings.cart, fontSize: 2,), text: 'cart',
+          //  AppText('sdf'),
+          //  appText: AppText(AppStrings.Producttitle),     
+
+          //  style: TextStyle(fontSize: 12),     
+                      ),
                      ],
                    ),
                  ),
@@ -94,7 +95,5 @@ class _ProductAddedToCartState extends State<ProductAddedToCart> {
              ),
            ),
            );
-           
-            
   }
 }

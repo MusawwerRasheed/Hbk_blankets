@@ -3,15 +3,16 @@
 import 'package:flutter/material.dart';
 import 'package:flutter_screenutil/flutter_screenutil.dart';
 import 'package:hbk/Data/DataSource/Static/colors_pallete.dart';
+import 'package:hbk/Data/DataSource/Static/strings.dart';
 import 'package:hbk/Data/DataSource/Static/text_styles.dart';
-
-
-
 import 'app_text.dart';
 import 'image_widgets.dart';
 
+
+
 class CustomButton extends StatelessWidget {
   final VoidCallback onTap;
+  final TextStyle? style; 
   final String text;
   final Color bgColor;
   final Color textColor;
@@ -20,7 +21,10 @@ class CustomButton extends StatelessWidget {
   final double? verticalPadding;
   final double? horizontalMargin;
   final double? verticalMargin;
-  final int? style;
+  final AppText? appText;
+  
+
+  // final dynamic? style;
   
 
   ///must be Asset Image
@@ -37,29 +41,32 @@ class CustomButton extends StatelessWidget {
   const CustomButton({
     Key? key,
     required this.onTap,
-    required this.text,
+    
+    required  this.text,
+    // this.style, 
     this.bgColor = AppColors.primaryColor,
     this.textColor = AppColors.whiteColor,
+    this.appText, 
+   
+
+    this.style, 
+    
     this.horizontalPadding = 10,
     this.verticalPadding = 10,
     this.horizontalMargin = 1,
     this.verticalMargin = 1,
     this.trailingIcon,
-    this.style, 
+   
     this.iconColor,
     this.isBorder = true,
     this.leadingIcon,
     this.imageWidth = 22,
     this.imageHeight = 25,
-    this.borderColor = AppColors.primaryColor,   double fontSize, 
+    this.borderColor = AppColors.primaryColor,    
     // this.style = TextStyle(); 
-
-  }) : super(key: key);
-
-
-
-
-
+  }) 
+  :super(key: key);
+ 
 
   @override
   Widget build(BuildContext context) {
@@ -105,17 +112,19 @@ class CustomButton extends StatelessWidget {
                       ),
                     )
                   : Container(),
-
+      
               AppText(
                 fontSize: 14.sp, 
                 text,
                 style: Styles.circularStdRegular(
                   context,
-                  color: textColor,
-                 
+                  color: textColor,                 
                   fontWeight: FontWeight.bold
                 ),
               ),
+                 
+
+
               trailingIcon != null
                   ? Padding(
                       padding: const EdgeInsets.only(left: 10.0),
